@@ -1,3 +1,4 @@
+import re
 import feedparser
 import streamlit as st
 
@@ -43,7 +44,6 @@ with st.sidebar:
     st.markdown("### ☕ Ti piace l'app?")
     st.write("Sostieni il progetto.")
     
-    # PULSANTE NATIVO: Questo non darà mai errori di visualizzazione
     st.link_button("☕ Offrimi un caffè", "https://ko-fi.com/repeat98201", use_container_width=True)
 
 st.divider()
@@ -68,9 +68,12 @@ else:
                 published = getattr(entry, 'published', 'Data non disp.')
                 st.caption(f"📅 {published}")
                 
-                # Sommario semplificato
-                summary = getattr(entry, 'summary', '')
-                if len(summary) > 150: summary = summary[:150] + "..."
+                # Pulizia totale del sommario da qualsiasi tag HTML/href
+                raw_summary = getattr(entry, 'summary', '')
+                summary = re.sub('<.*?>', '', raw_summary)
+                
+                if len(summary) > 150: 
+                    summary = summary[:150] + "..."
                 st.write(summary)
                 
                 st.link_button("Leggi", entry.link, use_container_width=True)
