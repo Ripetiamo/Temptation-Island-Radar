@@ -60,28 +60,10 @@ with st.sidebar:
 
     st.divider()
     
-    # Sezione Donazioni / Ko-fi
+    # Sezione Donazioni / Ko-fi (corretta in singola riga per evitare errori di visualizzazione)
     st.markdown("### ☕ Ti piace l'app?")
     st.write("Sostieni il progetto e mantieni il radar sempre attivo.")
-    
-    st.markdown("""
-        <a href="https://ko-fi.com/repeat98201" target="_blank" style="
-            display: block;
-            background: linear-gradient(135deg, #ff5e5b 0%, #ff8a5b 100%);
-            color: #ffffff;
-            padding: 12px 20px;
-            text-align: center;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 16px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(255, 94, 91, 0.4);
-            margin-top: 10px;
-            margin-bottom: 10px;
-        ">
-            ☕ Offrimi un caffè
-        </a>
-    """, unsafe_allow_html=True)
+    st.markdown('<a href="https://ko-fi.com/repeat98201" target="_blank" style="display: block; background: linear-gradient(135deg, #ff5e5b 0%, #ff8a5b 100%); color: #ffffff; padding: 12px 20px; text-align: center; text-decoration: none; font-weight: 700; font-size: 16px; border-radius: 10px; box-shadow: 0 4px 10px rgba(255, 94, 91, 0.4); margin: 10px 0;">☕ Offrimi un caffè</a>', unsafe_allow_html=True)
 
 st.divider()
 
